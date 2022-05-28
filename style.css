@@ -1,16 +1,28 @@
 body{
- color: red;  
+    height: 900px;
+color: blue;
+ display: flex;
+ flex: 1;
+
+ align-items: center;
+ flex-direction: column;
+ 
 }
 
 .field{
+    display: flex;
+    
+    word-wrap: break-word;
+    display: flex;
+    justify-content: right;
     font-size: 50px;
     text-align: right;
-    flex: 1;
+    flex: 1 1;
     border-style: solid;
 }
 .calc{
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-direction: column;
   gap: 5px;
