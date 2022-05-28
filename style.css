@@ -17,11 +17,13 @@ body{
  
 }
 .row{
+    gap:5px;
     display: flex;
     justify-content: space-evenly;
     flex : 1 0;
 }
 button{
+   border-radius: 2%;
     font-size: 50px;
     display: flex;
     justify-content: center;

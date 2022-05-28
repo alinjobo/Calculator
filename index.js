@@ -25,4 +25,16 @@ function operate(operator,a,b){
         break;
     };
 };
-inp=document.querySelector('.box');
+inp=document.querySelector('.field');
+
+const field=document.querySelector('.field')
+const numb=document.querySelectorAll('.num');
+numb.forEach(numbutton=> {
+    numbutton.addEventListener('click',()=>{
+        field.textContent+=numbutton.textContent;
+    })
+});
+ console.log(numb.innerHTML);
+//
+
+
