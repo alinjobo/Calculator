@@ -9,16 +9,27 @@ color: blue;
  
 }
 
+.textarea{
+    display: flex;
+    flex-flow: row-wrap;
+    flex: 1 0;
+    width: 400px;
+    height: 150px;
+    border-style: solid;
+    border-color: red;
+}
+
 .field{
     display: flex;
     
     word-wrap: break-word;
+    word-break: break-all;
     display: flex;
     justify-content: right;
     font-size: 50px;
     text-align: right;
-    flex: 1 1;
-    border-style: solid;
+    flex: 0 1;
+    
 }
 .calc{
     width: 600px;
@@ -35,12 +46,14 @@ color: blue;
     flex : 1 0;
 }
 button{
-   border-radius: 2%;
+    background-color: rgba(14, 8, 8, 0.911);
+    border-radius: 5%;
     font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1 1 80%;
+    flex: 1;
+    color: aliceblue;
 }
 h1{
     
