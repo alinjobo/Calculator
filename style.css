@@ -9,15 +9,7 @@ color: blue;
  
 }
 
-.textarea{
-    display: flex;
-    flex-flow: row-wrap;
-    flex: 1 0;
-    width: 400px;
-    height: 150px;
-    border-style: solid;
-    border-color: red;
-}
+
 
 .field{
     display: flex;
@@ -28,14 +20,17 @@ color: blue;
     justify-content: right;
     font-size: 50px;
     text-align: right;
-    flex: 0 1;
+    flex: 1 1;
+    border-style: solid;
+    
     
 }
 .calc{
     width: 600px;
-    height: 600px;
+    height: 600px; 
     display: flex;
     flex-direction: column;
+    
   gap: 5px;
  
 }

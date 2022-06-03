@@ -1,4 +1,4 @@
-let temp;
+let temp,result='',newvalue='',op;
 
 function add(a,b){
     
@@ -38,23 +38,18 @@ function operate(operator,a,b){
 };
 function dispnum(){
     field.textContent+=this.textContent;
-    fieldvalue=field.textContent;   
+    result=field.textContent;   
 
     
 };
 function operation(){
-    value2+=this.textContent;
+    newvalue+=this.textContent;
     field.textContent+=this.textContent;
-    console.log('value2',value2);
-    console.log('v1',value1);
-      
-    console.log('v1',value1);   
-   
-    console.log(fieldvalue);
+    
 
 };
 inp=document.querySelector('.field');
-let fieldvalue='';
+
 const field=document.querySelector('.field');
 const numb=document.querySelectorAll('.num');
 numb.forEach(numbutton=> {
@@ -66,15 +61,15 @@ clear.addEventListener('click',()=>{
     location.reload();
 });
  
- let value1,op;
- let value2='';
+
 const operator=document.querySelectorAll('.operator');
 operator.forEach(opbutton=>{
     opbutton.addEventListener('click',()=>{
        if(!(isNaN(field.textContent.slice(-1)))){ 
+        
+        result=operate(op,result,newvalue);  
         op=opbutton.textContent; 
-        fieldvalue=operate(op,fieldvalue,value2);  
-        value2='';
+        newvalue='';
         field.textContent+=opbutton.textContent;
         
         
@@ -97,13 +92,13 @@ operator.forEach(opbutton=>{
 //
 const equal=document.querySelector('.equals');
 equal.addEventListener('click',()=>{
-    fieldvalue=operate(op,fieldvalue,value2); 
-    field.textContent=fieldvalue;
-    fieldvalue='';
+    result=operate(op,result,newvalue); 
+    field.textContent=result;
+    result='';
     numb.forEach(numbutton=> {
         numbutton.removeEventListener('click',operation);
         numbutton.addEventListener('click',dispnum);
     });
 
-   // field.textContent=operate(op,parseInt(value1),parseInt(value2));
+   
 });
