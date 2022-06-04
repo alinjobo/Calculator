@@ -116,8 +116,10 @@ key.addEventListener("keydown",e=>{
     if(e.key=="Enter")
     equal.click();
         
-    if(e.key=="Backspace")
-    back.click();
+    if(e.key=="Backspace"){
+        back.classList.toggle('hover');
+        back.click();
+    }
     button.forEach(button=>{
         if(button.textContent==e.key){
         button.classList.toggle('hover');
@@ -127,6 +129,10 @@ key.addEventListener("keydown",e=>{
 });
 
 key.addEventListener("keyup",e=>{
+    if(e.key=="Backspace"){
+        back.classList.toggle('hover');
+        back.click();
+    }
     button.forEach(button=>{
         if(button.textContent==e.key){
             button.classList.toggle('hover');
