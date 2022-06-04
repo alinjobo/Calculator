@@ -38,9 +38,8 @@ function operate(operator,a,b){
 };
 function dispnum(){
     field.textContent+=this.textContent;
-    result=field.textContent;   
-
-    
+    result+=this.textContent;   
+   
 };
 function operation(){
     newvalue+=this.textContent;
@@ -48,11 +47,10 @@ function operation(){
     
 
 };
-inp=document.querySelector('.field');
 
 const field=document.querySelector('.field');
-const numb=document.querySelectorAll('.num');
-numb.forEach(numbutton=> {
+const num=document.querySelectorAll('.num');
+num.forEach(numbutton=> {
     numbutton.addEventListener('click',dispnum);
     
 });
@@ -68,37 +66,71 @@ operator.forEach(opbutton=>{
        if(!(isNaN(field.textContent.slice(-1)))){ 
         
         result=operate(op,result,newvalue);  
+        field.textContent=result;
+
         op=opbutton.textContent; 
         newvalue='';
         field.textContent+=opbutton.textContent;
         
-        
-        numb.forEach(numbutton=> {
+        num.forEach(numbutton=> {
             numbutton.removeEventListener('click',dispnum);
         });
-             
-        
-        console.log('text is', field.textContent);
-        console.log('index of op',field.textContent.indexOf(op)+1);
-
-        numb.forEach(numbutton=> {
+          
+        num.forEach(numbutton=> {
             numbutton.addEventListener('click',operation);
         });
-        
-        
         }
     });
 });
-//
+const back=document.querySelector('.back');
+back.addEventListener('click',()=>{
+   field.textContent=field.textContent.slice(0,-1);
+   result=field.textContent;
+});
+
+
 const equal=document.querySelector('.equals');
 equal.addEventListener('click',()=>{
     result=operate(op,result,newvalue); 
     field.textContent=result;
-    result='';
-    numb.forEach(numbutton=> {
+    newvalue='';   
+    num.forEach(numbutton=> {
         numbutton.removeEventListener('click',operation);
         numbutton.addEventListener('click',dispnum);
     });
+});
+const button = document.querySelectorAll('button');
+button.forEach(button=>{
+    button.addEventListener('mouseenter',()=>{
+        button.classList.toggle('hover');
+    }); 
+    button.addEventListener('mouseleave',()=>{
+        button.classList.toggle('hover');
+    });
+});
 
-   
+const key=document.querySelector('body');
+key.addEventListener("keydown",e=>{
+    if(e.key=="Delete")
+    clear.click();
+    if(e.key=="Enter")
+    equal.click();
+        
+    if(e.key=="Backspace")
+    back.click();
+    button.forEach(button=>{
+        if(button.textContent==e.key){
+        button.classList.toggle('hover');
+        button.click();
+        };      
+    });
+});
+
+key.addEventListener("keyup",e=>{
+    button.forEach(button=>{
+        if(button.textContent==e.key){
+            button.classList.toggle('hover');
+         
+        }
+    });
 });
